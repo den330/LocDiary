@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Diary-->
@@ -25,35 +26,81 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="ZNv-Tr-KkC"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uc-nJ-Z0p">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="5qB-4n-zYa">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dCF-Vo-Mmi"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="8Ik-tG-pCy" secondAttribute="bottom" id="13a-pJ-vWg"/>
-                            <constraint firstItem="8Ik-tG-pCy" firstAttribute="leading" secondItem="9uc-nJ-Z0p" secondAttribute="leading" id="Vkm-2i-lir"/>
-                            <constraint firstItem="9uc-nJ-Z0p" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="cu9-9N-hTT"/>
-                            <constraint firstItem="8Ik-tG-pCy" firstAttribute="trailing" secondItem="9uc-nJ-Z0p" secondAttribute="trailing" id="gJ4-cw-9o4"/>
-                            <constraint firstItem="8Ik-tG-pCy" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="qbr-jk-J4S"/>
-                            <constraint firstAttribute="trailing" secondItem="9uc-nJ-Z0p" secondAttribute="trailing" id="vIw-dr-0jr"/>
-                            <constraint firstItem="9uc-nJ-Z0p" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="20" id="wsW-xZ-rwj"/>
+                            <constraint firstItem="8Ik-tG-pCy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="26n-T7-CrS"/>
+                            <constraint firstItem="8Ik-tG-pCy" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="Ej6-hL-V2E"/>
+                            <constraint firstAttribute="bottom" secondItem="8Ik-tG-pCy" secondAttribute="bottom" id="MJD-1c-eA5"/>
+                            <constraint firstAttribute="trailing" secondItem="8Ik-tG-pCy" secondAttribute="trailing" id="WOM-W0-D8M"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Diary" image="first" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" title="Diary" id="lts-xZ-ewM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dLQ-S6-Enn">
+                            <connections>
+                                <segue destination="8mx-Yg-v19" kind="show" identifier="showDetail" id="om8-KB-k43"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="navBar" destination="9uc-nJ-Z0p" id="ZpY-FF-JI8"/>
                         <outlet property="tableView" destination="8Ik-tG-pCy" id="qkh-15-Als"/>
+                        <segue destination="8mx-Yg-v19" kind="show" identifier="editDetail" id="TVN-iw-fQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="1471" y="-320"/>
+        </scene>
+        <!--Diary Detail-->
+        <scene sceneID="uLL-yC-ArY">
+            <objects>
+                <viewController id="8mx-Yg-v19" customClass="DiaryDetailViewController" customModule="LocDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c4W-RT-JTl"/>
+                        <viewControllerLayoutGuide type="bottom" id="mxX-87-DL5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fyc-7E-Tlt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bEA-j1-Vbk">
+                                <rect key="frame" x="20" y="123" width="560" height="477"/>
+                                <color key="backgroundColor" red="0.076499580540000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgE-4K-Eax">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kgE-4K-Eax" firstAttribute="top" secondItem="c4W-RT-JTl" secondAttribute="bottom" constant="8" id="91g-FS-QRh"/>
+                            <constraint firstItem="bEA-j1-Vbk" firstAttribute="top" secondItem="kgE-4K-Eax" secondAttribute="bottom" constant="21" id="Uoq-AQ-gpK"/>
+                            <constraint firstItem="mxX-87-DL5" firstAttribute="top" secondItem="bEA-j1-Vbk" secondAttribute="bottom" constant="-49" id="c7C-Ey-HmP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kgE-4K-Eax" secondAttribute="trailing" id="cje-FK-zOE"/>
+                            <constraint firstItem="bEA-j1-Vbk" firstAttribute="leading" secondItem="fyc-7E-Tlt" secondAttribute="leading" constant="20" id="dc1-LF-SWl"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="kgE-4K-Eax" secondAttribute="leading" id="gLn-N8-sQu"/>
+                            <constraint firstAttribute="trailing" secondItem="bEA-j1-Vbk" secondAttribute="trailing" constant="20" id="zeb-8f-OaJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Diary Detail" id="qhh-vx-bhh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="s9Y-W3-NAc">
+                            <connections>
+                                <action selector="saveButton:" destination="8mx-Yg-v19" id="gb5-on-rvg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentView" destination="bEA-j1-Vbk" id="cy9-nU-fpP"/>
+                        <outlet property="titleView" destination="kgE-4K-Eax" id="Vj8-Vn-SYn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qp8-H5-iyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2150" y="-320"/>
         </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
@@ -106,7 +153,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="YOX-ow-Mtd" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
@@ -114,9 +161,31 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Diary-->
+        <scene sceneID="PVt-N0-jQN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YOX-ow-Mtd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Diary" image="first" id="acW-dT-cKf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kyk-wS-tpQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="mfQ-r3-Axl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7a-k4-ETY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="TVN-iw-fQZ"/>
+    </inferredMetricsTieBreakers>
 </document>
