@@ -30,6 +30,12 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
         try! fetchedResultController.performFetch()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.tabBar.hidden = false
+        
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let detailCon = segue.destinationViewController as! DiaryDetailViewController
         detailCon.managedContext = managedContext

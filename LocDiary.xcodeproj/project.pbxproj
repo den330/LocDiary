@@ -21,6 +21,8 @@
 		9057E2291D34A27300DBF57D /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057E2281D34A27300DBF57D /* DiaryDetailViewController.swift */; };
 		9057E22B1D359BCE00DBF57D /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057E22A1D359BCE00DBF57D /* CoreDataStack.swift */; };
 		9057E22D1D359FF600DBF57D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057E22C1D359FF600DBF57D /* Functions.swift */; };
+		9057E22F1D35AD5B00DBF57D /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057E22E1D35AD5B00DBF57D /* HudView.swift */; };
+		9057E2311D35AE9900DBF57D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9057E2301D35AE9900DBF57D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		9057E2281D34A27300DBF57D /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 		9057E22A1D359BCE00DBF57D /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9057E22C1D359FF600DBF57D /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		9057E22E1D35AD5B00DBF57D /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		9057E2301D35AE9900DBF57D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9057E2311D35AE9900DBF57D /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,7 @@
 		90166B6F1D34797100CE90D0 = {
 			isa = PBXGroup;
 			children = (
+				9057E2301D35AE9900DBF57D /* MapKit.framework */,
 				90166B7A1D34797100CE90D0 /* LocDiary */,
 				90166B791D34797100CE90D0 /* Products */,
 			);
@@ -84,6 +90,7 @@
 				9057E2281D34A27300DBF57D /* DiaryDetailViewController.swift */,
 				90166B8F1D348F6E00CE90D0 /* DiaryCell.xib */,
 				90166B911D3490A900CE90D0 /* DiaryCell.swift */,
+				9057E22E1D35AD5B00DBF57D /* HudView.swift */,
 				90166B841D34797200CE90D0 /* Assets.xcassets */,
 				90166B861D34797200CE90D0 /* LaunchScreen.storyboard */,
 				90166B891D34797200CE90D0 /* Info.plist */,
@@ -170,6 +177,7 @@
 				9057E22B1D359BCE00DBF57D /* CoreDataStack.swift in Sources */,
 				9057E2231D349A1D00DBF57D /* Diary Model.xcdatamodeld in Sources */,
 				9057E2261D349AB300DBF57D /* Diary+CoreDataProperties.swift in Sources */,
+				9057E22F1D35AD5B00DBF57D /* HudView.swift in Sources */,
 				9057E2291D34A27300DBF57D /* DiaryDetailViewController.swift in Sources */,
 				90166B7E1D34797100CE90D0 /* DiaryListViewController.swift in Sources */,
 				90166B921D3490A900CE90D0 /* DiaryCell.swift in Sources */,
