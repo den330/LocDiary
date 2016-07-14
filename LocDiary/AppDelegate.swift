@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navCon = tabController.viewControllers![0] as! UINavigationController
         let diaryListCon = navCon.topViewController as! DiaryListViewController
         diaryListCon.managedContext = coreDataStack.context
+        
+        let secondNavCon = tabController.viewControllers![1] as! UINavigationController
+        let mapCon = secondNavCon.topViewController as! MapViewController
+        mapCon.managedContext = coreDataStack.context
         return true
     }
 

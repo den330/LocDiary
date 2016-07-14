@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		90166B7C1D34797100CE90D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90166B7B1D34797100CE90D0 /* AppDelegate.swift */; };
 		90166B7E1D34797100CE90D0 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90166B7D1D34797100CE90D0 /* DiaryListViewController.swift */; };
-		90166B801D34797100CE90D0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90166B7F1D34797100CE90D0 /* SecondViewController.swift */; };
+		90166B801D34797100CE90D0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90166B7F1D34797100CE90D0 /* MapViewController.swift */; };
 		90166B831D34797100CE90D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90166B811D34797100CE90D0 /* Main.storyboard */; };
 		90166B851D34797200CE90D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90166B841D34797200CE90D0 /* Assets.xcassets */; };
 		90166B881D34797200CE90D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90166B861D34797200CE90D0 /* LaunchScreen.storyboard */; };
@@ -32,7 +32,7 @@
 		90166B781D34797100CE90D0 /* LocDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90166B7B1D34797100CE90D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90166B7D1D34797100CE90D0 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
-		90166B7F1D34797100CE90D0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		90166B7F1D34797100CE90D0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		90166B821D34797100CE90D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90166B841D34797200CE90D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90166B871D34797200CE90D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				90166B7D1D34797100CE90D0 /* DiaryListViewController.swift */,
 				9057E22C1D359FF600DBF57D /* Functions.swift */,
 				9057E2211D349A1D00DBF57D /* Diary Model.xcdatamodeld */,
-				90166B7F1D34797100CE90D0 /* SecondViewController.swift */,
+				90166B7F1D34797100CE90D0 /* MapViewController.swift */,
 				90166B811D34797100CE90D0 /* Main.storyboard */,
 				9057E22A1D359BCE00DBF57D /* CoreDataStack.swift */,
 				9057E2281D34A27300DBF57D /* DiaryDetailViewController.swift */,
@@ -180,7 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9057E2271D349AB300DBF57D /* Diary.swift in Sources */,
-				90166B801D34797100CE90D0 /* SecondViewController.swift in Sources */,
+				90166B801D34797100CE90D0 /* MapViewController.swift in Sources */,
 				90166B7C1D34797100CE90D0 /* AppDelegate.swift in Sources */,
 				9057E22D1D359FF600DBF57D /* Functions.swift in Sources */,
 				9057E22B1D359BCE00DBF57D /* CoreDataStack.swift in Sources */,

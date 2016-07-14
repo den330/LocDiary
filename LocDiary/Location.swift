@@ -9,12 +9,22 @@
 import Foundation
 import CoreData
 import CoreLocation
+import MapKit
 
-class Location: NSManagedObject {
-
+class Location: NSManagedObject,MKAnnotation {
+    
     func getCLocation() -> CLLocation{
-        let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
+        let location = CLLocation(latitude: latitude, longitude: longitude)
         return location
+    }
+    
+    var coordinate: CLLocationCoordinate2D{
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    var title: String?{
+        let description = "\(entNum) diaries"
+        return description
     }
 
 }

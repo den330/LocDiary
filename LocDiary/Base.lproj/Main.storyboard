@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="2150" y="-320"/>
         </scene>
-        <!--Map-->
+        <!--Diary Map-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="LocDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="MapViewController" customModule="LocDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -149,11 +149,25 @@
                             <constraint firstAttribute="bottom" secondItem="UVw-7I-SLg" secondAttribute="bottom" id="m1u-aN-Hly"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="second" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" title="Diary Map" id="vY9-G0-nKv">
+                        <barButtonItem key="leftBarButtonItem" title="Locations" id="thc-VM-DHr">
+                            <connections>
+                                <action selector="LocationButton:" destination="8rJ-Kc-sve" id="8L8-oQ-lGu"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="User" id="0c1-UB-9s4">
+                            <connections>
+                                <action selector="UserButton:" destination="8rJ-Kc-sve" id="K7H-JZ-ZcE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="UVw-7I-SLg" id="fSW-fj-gcc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="1562" y="360"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -167,7 +181,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="YOX-ow-Mtd" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="9yC-tN-D9K" kind="relationship" relationship="viewControllers" id="F2c-5w-58q"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -192,6 +206,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7a-k4-ETY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="pEG-Dg-3sE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9yC-tN-D9K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="second" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QFa-Cv-vK8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="0fw-tl-w5A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5n9-Z4-r2E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="360"/>
         </scene>
     </scenes>
     <resources>

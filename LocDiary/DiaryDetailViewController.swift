@@ -61,6 +61,7 @@ class DiaryDetailViewController: UIViewController {
             }
             newDiary.diaryDate = NSDate()
         }else{
+            newDiary = currentDiary
             currentDiary!.title = titleView.text!
             currentDiary!.content = contentView.text
             currentDiary!.diaryDate = NSDate()
@@ -85,7 +86,7 @@ class DiaryDetailViewController: UIViewController {
         let distances = cLocations.map{$0.distanceFromLocation(location!)}
         let minDistance = distances.minElement()
         let rightLocation: Location
-        if minDistance <= 20{
+        if minDistance <= 20 && !locations.isEmpty{
             let index = distances.indexOf(minDistance!)!
             rightLocation = locations[index]
             rightLocation.entNum += 1
