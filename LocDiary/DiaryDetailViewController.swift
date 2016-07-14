@@ -21,6 +21,14 @@ class DiaryDetailViewController: UIViewController {
     var editingModeOn = false
     var currentDiary: Diary?
     let locationManager = CLLocationManager()
+    var location: CLLocation?
+    var lastLocationError: NSError?
+    let geoCoder = CLGeocoder()
+    var placemark: CLPlacemark?
+    var performingReverse = false
+    var lastGeoCodeError: NSError?
+    var newDiary: Diary!
+    
  
     
     override func viewDidLoad() {
@@ -35,20 +43,16 @@ class DiaryDetailViewController: UIViewController {
     
     @IBAction func switchTurn(sender: UISwitch) {
         if locationSwitch.on{
-            SaveButt.enabled = false
-            locationLabel.text = "Searching Location...."
             handleOn()
         }else{
             handleOff()
-            SaveButt.enabled = true
-            locationLabel.text = "Cancelled"
         }
     }
     
-    @IBAction func saveButton(sender: UIBarButtonItem) {
+    func saveDiary(){
         if editingModeOn == false{
             let diaryEntity = NSEntityDescription.entityForName("Diary", inManagedObjectContext: managedContext)!
-            let newDiary = Diary(entity: diaryEntity, insertIntoManagedObjectContext: managedContext)
+            newDiary = Diary(entity: diaryEntity, insertIntoManagedObjectContext: managedContext)
             newDiary.content = contentView.text
             if titleView.text! == ""{
                 newDiary.title = "No Title"
@@ -62,6 +66,9 @@ class DiaryDetailViewController: UIViewController {
             currentDiary!.diaryDate = NSDate()
         }
         try! managedContext.save()
+    }
+    
+    func presentHudView(){
         let hudView = HudView.hudInView(view, animated: true)
         hudView.text = "Saved"
         let delayInSeconds = 0.6
@@ -69,6 +76,40 @@ class DiaryDetailViewController: UIViewController {
         dispatch_after(when, dispatch_get_main_queue()){
             self.navigationController?.popViewControllerAnimated(true)
         }
+    }
+    
+    func saveLocation(){
+        let fetchRequest = NSFetchRequest(entityName: "Location")
+        let locations = try! managedContext.executeFetchRequest(fetchRequest) as! [Location]
+        let cLocations = locations.map{$0.getCLocation()}
+        let distances = cLocations.map{$0.distanceFromLocation(location!)}
+        let minDistance = distances.minElement()
+        let rightLocation: Location
+        if minDistance <= 20{
+            let index = distances.indexOf(minDistance!)!
+            rightLocation = locations[index]
+            rightLocation.entNum += 1
+        }else{
+            let locationEntity = NSEntityDescription.entityForName("Location", inManagedObjectContext: managedContext)!
+            let newLocation = Location(entity: locationEntity, insertIntoManagedObjectContext: managedContext)
+            newLocation.entNum = 1
+            newLocation.latitude = location!.coordinate.latitude
+            newLocation.longitude = location!.coordinate.longitude
+            newLocation.name = locationLabel.text!
+            rightLocation = newLocation
+        }
+        
+        let modifyArray = rightLocation.diaries.mutableCopy() as! NSMutableOrderedSet
+        modifyArray.addObject(newDiary)
+        rightLocation.diaries = modifyArray.copy() as! NSOrderedSet
+        
+        try! managedContext.save()
+    }
+    
+    @IBAction func saveButton(sender: UIBarButtonItem) {
+        saveDiary()
+        saveLocation()
+        presentHudView()
     }
 }
 
@@ -83,35 +124,119 @@ extension DiaryDetailViewController: CLLocationManagerDelegate{
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         let newLocation = locations.last!
         print(newLocation)
+        if newLocation.timestamp.timeIntervalSinceNow < -5{
+            return
+        }
+        if newLocation.horizontalAccuracy < 0{
+            return
+        }
+        var distance = CLLocationDistance(DBL_MAX)
+        if let location = location{
+            distance = newLocation.distanceFromLocation(location)
+        }
+        
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy{
+            lastLocationError = nil
+            location = newLocation
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy{
+                stopUpdate()
+                performingReverse = false
+            }
+            getRealLocation(location!)
+        }else if distance < 1.0{
+            let timeInterval = newLocation.timestamp.timeIntervalSinceDate(location!.timestamp)
+            if timeInterval > 10{
+                stopUpdate()
+            }
+        }
     }
     
+    func getRealLocation(location: CLLocation){
+        if performingReverse == false{
+            performingReverse = true
+            geoCoder.reverseGeocodeLocation(location){placemarks, error in
+                self.lastGeoCodeError = error
+                if error == nil, let p = placemarks where !p.isEmpty{
+                    self.placemark = p.last!
+                    let loc = self.stringFromPlacemark(self.placemark!)
+                    self.locationLabel.text = loc
+                }else{
+                    self.placemark = nil
+                    self.handleWrong()
+                }
+                self.SaveButt.enabled = true
+            }
+        }
+    }
+    
+    func handleWrong(){
+        locationSwitch.on = false
+        locationLabel.text = "Something Wrong, Try Again Later!"
+    }
+    
+    func stringFromPlacemark(placemark: CLPlacemark) -> String {
+        var line1 = ""
+        line1.addText(placemark.subThoroughfare)
+        line1.addText(placemark.thoroughfare, withSeparator: " ")
+        
+        var line2 = ""
+        line2.addText(placemark.locality)
+        line2.addText(placemark.administrativeArea, withSeparator: " ")
+        line2.addText(placemark.postalCode, withSeparator: " ")
+        
+        line1.addText(line2, withSeparator: "\n")
+        return line1
+    }
+    
+    
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print(error)
+        if error.code == CLError.LocationUnknown.rawValue{
+            return
+        }
+        lastLocationError = error
+        handleWrong()
+    }
+    
+    func stopUpdate(){
+        locationManager.stopUpdatingLocation()
+        locationManager.delegate = nil
     }
     
     
     func handleOn(){
+        SaveButt.enabled = false
+        locationLabel.text = "Searching Location...."
         let authStatus = CLLocationManager.authorizationStatus()
         if authStatus == .NotDetermined{
             locationManager.requestWhenInUseAuthorization()
-            locationSwitch.on = false
+            handleWrong()
             return
         }
         if authStatus == .Denied || authStatus == .Restricted{
             showLocationServiceDeniedAlert()
-            locationSwitch.on = false
+            handleWrong()
             return
         }
-        
+        startUpdate()
+    }
+    
+    func startUpdate(){
+        location = nil
+        performingReverse = false
+        lastGeoCodeError = nil
+        lastLocationError = nil
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation()
     }
     
     func handleOff(){
-        
+        stopUpdate()
+        SaveButt.enabled = true
+        locationLabel.text = "Cancelled"
     }
     
 }

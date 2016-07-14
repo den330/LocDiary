@@ -1,5 +1,5 @@
 //
-//  Diary+CoreDataProperties.swift
+//  Location+CoreDataProperties.swift
 //  LocDiary
 //
 //  Created by Yaxin Yuan on 16/7/14.
@@ -12,11 +12,12 @@
 import Foundation
 import CoreData
 
-extension Diary {
+extension Location {
 
-    @NSManaged var content: String
-    @NSManaged var diaryDate: NSDate
-    @NSManaged var title: String
-    @NSManaged var location: Location?
+    @NSManaged var latitude: Double
+    @NSManaged var longitude: Double
+    @NSManaged var entNum: Int32
+    @NSManaged var name: String
+    @NSManaged var diaries: NSOrderedSet
 
 }

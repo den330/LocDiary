@@ -4,8 +4,17 @@
         <attribute name="content" attributeType="String" defaultValueString="No Content" syncable="YES"/>
         <attribute name="diaryDate" attributeType="Date" defaultDateTimeInterval="489986640" syncable="YES"/>
         <attribute name="title" attributeType="String" defaultValueString="NO TITLE" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="diaries" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName=".Location" syncable="YES">
+        <attribute name="entNum" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString="Unknown" syncable="YES"/>
+        <relationship name="diaries" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Diary" inverseName="location" inverseEntity="Diary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Diary" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Diary" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Location" positionX="196" positionY="60" width="128" height="120"/>
     </elements>
 </model>
