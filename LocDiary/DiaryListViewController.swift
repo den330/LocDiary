@@ -50,7 +50,18 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete{
             let diary = fetchedResultController.objectAtIndexPath(indexPath) as! Diary
+            if let location = diary.location{
+               
+                let diaries = location.diaries.mutableCopy() as! NSMutableOrderedSet
+                diaries.removeObject(diary)
+                location.diaries = diaries.copy() as! NSOrderedSet
+                location.entNum -= 1
+                if location.entNum == 0{
+                    managedContext.deleteObject(location)
+                }
+            }
             managedContext.deleteObject(diary)
+            try! managedContext.save()
         }
     }
     

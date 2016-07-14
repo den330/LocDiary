@@ -38,6 +38,9 @@ class DiaryDetailViewController: UIViewController {
             titleView.text = diary.title
             contentView.text = diary.content
         }
+        if editingModeOn{
+            locationLabel.text = "Off: Keep the original location, On: Update to current location"
+        }
         tabBarController?.tabBar.hidden = true
     }
     
@@ -79,7 +82,23 @@ class DiaryDetailViewController: UIViewController {
         }
     }
     
+    func removeFromOldLocation(){
+        if let relatedLocation = newDiary.location{
+            relatedLocation.entNum -= 1
+            if relatedLocation.entNum == 0{
+                managedContext.deleteObject(relatedLocation)
+            }
+            let diaries = relatedLocation.diaries.mutableCopy() as! NSMutableOrderedSet
+            diaries.removeObject(newDiary)
+            relatedLocation.diaries = diaries.copy() as! NSOrderedSet
+            try! managedContext.save()
+        }
+    }
+    
     func saveLocation(){
+        if editingModeOn{
+            removeFromOldLocation()
+        }
         let fetchRequest = NSFetchRequest(entityName: "Location")
         let locations = try! managedContext.executeFetchRequest(fetchRequest) as! [Location]
         let cLocations = locations.map{$0.getCLocation()}
@@ -109,7 +128,9 @@ class DiaryDetailViewController: UIViewController {
     
     @IBAction func saveButton(sender: UIBarButtonItem) {
         saveDiary()
-        saveLocation()
+        if locationSwitch.on{
+            saveLocation()
+        }
         presentHudView()
     }
 }
@@ -158,7 +179,7 @@ extension DiaryDetailViewController: CLLocationManagerDelegate{
     func getRealLocation(location: CLLocation){
         if performingReverse == false{
             performingReverse = true
-            geoCoder.reverseGeocodeLocation(location){placemarks, error in
+            geoCoder.reverseGeocodeLocation(location){[unowned self] placemarks, error in
                 self.lastGeoCodeError = error
                 if error == nil, let p = placemarks where !p.isEmpty{
                     self.placemark = p.last!
