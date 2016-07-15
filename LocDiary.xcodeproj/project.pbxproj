@@ -26,6 +26,7 @@
 		90FE33921D35FCF9009985EC /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE33901D35FCF9009985EC /* Location+CoreDataProperties.swift */; };
 		90FE33931D35FCF9009985EC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE33911D35FCF9009985EC /* Location.swift */; };
 		90FE33951D36D67C009985EC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE33941D36D67C009985EC /* StringExtension.swift */; };
+		90FE33971D396F23009985EC /* AnnotationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE33961D396F23009985EC /* AnnotationDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		90FE33901D35FCF9009985EC /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90FE33911D35FCF9009985EC /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		90FE33941D36D67C009985EC /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		90FE33961D396F23009985EC /* AnnotationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				9057E2211D349A1D00DBF57D /* Diary Model.xcdatamodeld */,
 				90166B7F1D34797100CE90D0 /* MapViewController.swift */,
 				90166B811D34797100CE90D0 /* Main.storyboard */,
+				90FE33961D396F23009985EC /* AnnotationDetailViewController.swift */,
 				9057E22A1D359BCE00DBF57D /* CoreDataStack.swift */,
 				9057E2281D34A27300DBF57D /* DiaryDetailViewController.swift */,
 				90FE33941D36D67C009985EC /* StringExtension.swift */,
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9057E2271D349AB300DBF57D /* Diary.swift in Sources */,
+				90FE33971D396F23009985EC /* AnnotationDetailViewController.swift in Sources */,
 				90166B801D34797100CE90D0 /* MapViewController.swift in Sources */,
 				90166B7C1D34797100CE90D0 /* AppDelegate.swift in Sources */,
 				9057E22D1D359FF600DBF57D /* Functions.swift in Sources */,

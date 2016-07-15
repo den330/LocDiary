@@ -115,10 +115,6 @@ extension DiaryListViewController: NSFetchedResultsControllerDelegate{
     }
 }
 
-
-
-
-
 extension DiaryListViewController: UINavigationBarDelegate{
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return .TopAttached

@@ -29,8 +29,6 @@ class DiaryDetailViewController: UIViewController {
     var lastGeoCodeError: NSError?
     var newDiary: Diary!
     
- 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
@@ -105,7 +103,7 @@ class DiaryDetailViewController: UIViewController {
         let distances = cLocations.map{$0.distanceFromLocation(location!)}
         let minDistance = distances.minElement()
         let rightLocation: Location
-        if minDistance <= 20 && !locations.isEmpty{
+        if minDistance <= 50 && !locations.isEmpty{
             let index = distances.indexOf(minDistance!)!
             rightLocation = locations[index]
             rightLocation.entNum += 1
@@ -148,7 +146,6 @@ extension DiaryDetailViewController: CLLocationManagerDelegate{
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let newLocation = locations.last!
-        print(newLocation)
         if newLocation.timestamp.timeIntervalSinceNow < -5{
             return
         }
@@ -251,7 +248,7 @@ extension DiaryDetailViewController: CLLocationManagerDelegate{
         lastGeoCodeError = nil
         lastLocationError = nil
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
     

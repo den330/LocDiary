@@ -13,10 +13,8 @@ import Foundation
 import CoreData
 
 extension Diary {
-
     @NSManaged var content: String
     @NSManaged var diaryDate: NSDate
     @NSManaged var title: String
     @NSManaged var location: Location?
-
 }

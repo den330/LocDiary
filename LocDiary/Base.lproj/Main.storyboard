@@ -139,6 +139,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UVw-7I-SLg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="tWA-d6-FEi"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -152,7 +155,7 @@
                     <navigationItem key="navigationItem" title="Diary Map" id="vY9-G0-nKv">
                         <barButtonItem key="leftBarButtonItem" title="Locations" id="thc-VM-DHr">
                             <connections>
-                                <action selector="LocationButton:" destination="8rJ-Kc-sve" id="8L8-oQ-lGu"/>
+                                <action selector="LocationButton" destination="8rJ-Kc-sve" id="hKN-2z-cXo"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="User" id="0c1-UB-9s4">
@@ -163,11 +166,50 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="UVw-7I-SLg" id="fSW-fj-gcc"/>
+                        <segue destination="zGk-8a-a8n" kind="show" identifier="showDetail" id="ZTf-BL-og2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="360"/>
+            <point key="canvasLocation" x="1471" y="360"/>
+        </scene>
+        <!--Annotation Detail View Controller-->
+        <scene sceneID="GhP-8I-edk">
+            <objects>
+                <viewController id="zGk-8a-a8n" customClass="AnnotationDetailViewController" customModule="LocDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WJh-pj-2Ax"/>
+                        <viewControllerLayoutGuide type="bottom" id="mKu-pK-NL2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D7v-3s-nUx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j0d-JL-70H">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zGk-8a-a8n" id="4fN-mX-888"/>
+                                    <outlet property="delegate" destination="zGk-8a-a8n" id="uP6-yl-KRj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j0d-JL-70H" firstAttribute="top" secondItem="D7v-3s-nUx" secondAttribute="top" id="Oit-gV-gFv"/>
+                            <constraint firstAttribute="bottom" secondItem="j0d-JL-70H" secondAttribute="bottom" id="RmD-Xg-7mO"/>
+                            <constraint firstAttribute="trailing" secondItem="j0d-JL-70H" secondAttribute="trailing" id="aVg-2V-xqH"/>
+                            <constraint firstItem="j0d-JL-70H" firstAttribute="leading" secondItem="D7v-3s-nUx" secondAttribute="leading" id="ola-z4-v4w"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="j0d-JL-70H" id="xQf-JO-oki"/>
+                        <segue destination="8mx-Yg-v19" kind="show" identifier="showThisOne" id="9KG-qg-mG9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRE-bn-ieq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2150" y="360"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -232,6 +274,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TVN-iw-fQZ"/>
+        <segue reference="9KG-qg-mG9"/>
     </inferredMetricsTieBreakers>
 </document>
