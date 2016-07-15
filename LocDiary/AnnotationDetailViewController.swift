@@ -70,17 +70,5 @@ class AnnotationDetailViewController: UIViewController, UITableViewDelegate, UIT
             detailVC.managedContext = managedContext
         }
     }
-    
-    
-    
-    
-    
-    
-
-
-
 }
 
-extension AnnotationDetailViewController: NSFetchedResultsControllerDelegate{
-    
-}
