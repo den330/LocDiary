@@ -36,6 +36,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Diary" id="lts-xZ-ewM">
+                        <barButtonItem key="leftBarButtonItem" title="Set Password" id="eCf-b8-jF8">
+                            <connections>
+                                <segue destination="SCF-JI-qxh" kind="presentation" id="Mmi-lv-nt8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dLQ-S6-Enn">
                             <connections>
                                 <segue destination="8mx-Yg-v19" kind="show" identifier="showDetail" id="om8-KB-k43"/>
@@ -86,7 +91,7 @@
                                     <constraint firstAttribute="height" constant="39" id="3Md-J9-mI6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -268,12 +273,77 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
+        <!--Passcode Settings View Controller-->
+        <scene sceneID="9Hs-be-iEF">
+            <objects>
+                <viewController id="SCF-JI-qxh" customClass="PasscodeSettingsViewController" customModule="LocDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z2B-HE-yzV"/>
+                        <viewControllerLayoutGuide type="bottom" id="ifS-iF-lI8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0ZY-DM-W5v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passcode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaW-uN-7hk">
+                                <rect key="frame" x="261" y="289" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SQ-Ug-NhR">
+                                <rect key="frame" x="238" y="328" width="124" height="30"/>
+                                <state key="normal" title="Change Passcode"/>
+                                <connections>
+                                    <action selector="changePasscodeButtonTap:" destination="SCF-JI-qxh" eventType="touchUpInside" id="8ne-1G-a69"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vq7-Yg-dmZ">
+                                <rect key="frame" x="282" y="366" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="done" destination="SCF-JI-qxh" eventType="touchUpInside" id="cAR-WB-Klb"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGc-Kw-FGR">
+                                <rect key="frame" x="359" y="284" width="51" height="31"/>
+                                <connections>
+                                    <action selector="passcodeSwitchValueChange:" destination="SCF-JI-qxh" eventType="valueChanged" id="17T-Be-6e5"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Vq7-Yg-dmZ" firstAttribute="centerX" secondItem="0ZY-DM-W5v" secondAttribute="centerX" id="VJM-9i-cNL"/>
+                            <constraint firstItem="zaW-uN-7hk" firstAttribute="centerX" secondItem="0ZY-DM-W5v" secondAttribute="centerX" id="bcH-IP-r6K"/>
+                            <constraint firstItem="rGc-Kw-FGR" firstAttribute="centerY" secondItem="0ZY-DM-W5v" secondAttribute="centerY" id="bxG-Fq-tlK"/>
+                            <constraint firstItem="Vq7-Yg-dmZ" firstAttribute="top" secondItem="8SQ-Ug-NhR" secondAttribute="bottom" constant="8" id="sUm-y8-Grb"/>
+                            <constraint firstItem="8SQ-Ug-NhR" firstAttribute="centerX" secondItem="0ZY-DM-W5v" secondAttribute="centerX" id="tEd-wE-1WX"/>
+                            <constraint firstItem="8SQ-Ug-NhR" firstAttribute="top" secondItem="zaW-uN-7hk" secondAttribute="bottom" constant="18" id="w7c-eq-lWV"/>
+                            <constraint firstItem="rGc-Kw-FGR" firstAttribute="leading" secondItem="zaW-uN-7hk" secondAttribute="trailing" constant="19" id="xFt-9X-cvE"/>
+                            <constraint firstItem="zaW-uN-7hk" firstAttribute="centerY" secondItem="0ZY-DM-W5v" secondAttribute="centerY" id="z0f-m3-0Qv"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DP6-FY-Epn" appends="YES" id="Ia5-Af-rtp"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="changePasscodeButton" destination="8SQ-Ug-NhR" id="LmB-Hd-97W"/>
+                        <outlet property="passcodeSwitch" destination="rGc-Kw-FGR" id="Szj-st-LGF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X66-xu-xSR" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="DP6-FY-Epn"/>
+            </objects>
+            <point key="canvasLocation" x="1125" y="-1306"/>
+        </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9KG-qg-mG9"/>
+        <segue reference="om8-KB-k43"/>
     </inferredMetricsTieBreakers>
 </document>

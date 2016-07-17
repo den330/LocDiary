@@ -23,11 +23,31 @@
 		9057E22D1D359FF600DBF57D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057E22C1D359FF600DBF57D /* Functions.swift */; };
 		9057E22F1D35AD5B00DBF57D /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057E22E1D35AD5B00DBF57D /* HudView.swift */; };
 		9057E2311D35AE9900DBF57D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9057E2301D35AE9900DBF57D /* MapKit.framework */; };
+		90D083DA1D3B42A50077E181 /* PassCodeLockConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D083D91D3B42A50077E181 /* PassCodeLockConfig.swift */; };
+		90D083DC1D3B42FC0077E181 /* PassUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D083DB1D3B42FC0077E181 /* PassUserDefault.swift */; };
+		90D083DE1D3BE65C0077E181 /* PasscodeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D083DD1D3BE65C0077E181 /* PasscodeSettingsViewController.swift */; };
+		90F23B491D3B20D900EC0FE5 /* PasscodeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F23B481D3B20D900EC0FE5 /* PasscodeLock.framework */; };
+		90F23B4C1D3B238200EC0FE5 /* PasscodeLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F23B4B1D3B238200EC0FE5 /* PasscodeLock.framework */; };
+		90F23B4D1D3B238200EC0FE5 /* PasscodeLock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90F23B4B1D3B238200EC0FE5 /* PasscodeLock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		90FE33921D35FCF9009985EC /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE33901D35FCF9009985EC /* Location+CoreDataProperties.swift */; };
 		90FE33931D35FCF9009985EC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE33911D35FCF9009985EC /* Location.swift */; };
 		90FE33951D36D67C009985EC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE33941D36D67C009985EC /* StringExtension.swift */; };
 		90FE33971D396F23009985EC /* AnnotationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE33961D396F23009985EC /* AnnotationDetailViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		90F23B4E1D3B238200EC0FE5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				90F23B4D1D3B238200EC0FE5 /* PasscodeLock.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		90166B781D34797100CE90D0 /* LocDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +68,11 @@
 		9057E22C1D359FF600DBF57D /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		9057E22E1D35AD5B00DBF57D /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		9057E2301D35AE9900DBF57D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		90D083D91D3B42A50077E181 /* PassCodeLockConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassCodeLockConfig.swift; sourceTree = "<group>"; };
+		90D083DB1D3B42FC0077E181 /* PassUserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassUserDefault.swift; sourceTree = "<group>"; };
+		90D083DD1D3BE65C0077E181 /* PasscodeSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeSettingsViewController.swift; sourceTree = "<group>"; };
+		90F23B481D3B20D900EC0FE5 /* PasscodeLock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PasscodeLock.framework; path = Carthage/Build/iOS/PasscodeLock.framework; sourceTree = "<group>"; };
+		90F23B4B1D3B238200EC0FE5 /* PasscodeLock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PasscodeLock.framework; path = Carthage/Build/iOS/PasscodeLock.framework; sourceTree = "<group>"; };
 		90FE33901D35FCF9009985EC /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		90FE33911D35FCF9009985EC /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		90FE33941D36D67C009985EC /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -60,6 +85,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9057E2311D35AE9900DBF57D /* MapKit.framework in Frameworks */,
+				90F23B4C1D3B238200EC0FE5 /* PasscodeLock.framework in Frameworks */,
+				90F23B491D3B20D900EC0FE5 /* PasscodeLock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +96,8 @@
 		90166B6F1D34797100CE90D0 = {
 			isa = PBXGroup;
 			children = (
+				90F23B4B1D3B238200EC0FE5 /* PasscodeLock.framework */,
+				90F23B481D3B20D900EC0FE5 /* PasscodeLock.framework */,
 				9057E2301D35AE9900DBF57D /* MapKit.framework */,
 				90166B7A1D34797100CE90D0 /* LocDiary */,
 				90166B791D34797100CE90D0 /* Products */,
@@ -91,6 +120,9 @@
 				9057E2241D349AB300DBF57D /* Diary+CoreDataProperties.swift */,
 				9057E2251D349AB300DBF57D /* Diary.swift */,
 				90166B7B1D34797100CE90D0 /* AppDelegate.swift */,
+				90D083D91D3B42A50077E181 /* PassCodeLockConfig.swift */,
+				90D083DB1D3B42FC0077E181 /* PassUserDefault.swift */,
+				90D083DD1D3BE65C0077E181 /* PasscodeSettingsViewController.swift */,
 				90166B7D1D34797100CE90D0 /* DiaryListViewController.swift */,
 				9057E22C1D359FF600DBF57D /* Functions.swift */,
 				9057E2211D349A1D00DBF57D /* Diary Model.xcdatamodeld */,
@@ -120,6 +152,8 @@
 				90166B741D34797100CE90D0 /* Sources */,
 				90166B751D34797100CE90D0 /* Frameworks */,
 				90166B761D34797100CE90D0 /* Resources */,
+				90F23B4A1D3B212200EC0FE5 /* ShellScript */,
+				90F23B4E1D3B238200EC0FE5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +211,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		90F23B4A1D3B212200EC0FE5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		90166B741D34797100CE90D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -184,8 +234,11 @@
 			files = (
 				9057E2271D349AB300DBF57D /* Diary.swift in Sources */,
 				90FE33971D396F23009985EC /* AnnotationDetailViewController.swift in Sources */,
+				90D083DE1D3BE65C0077E181 /* PasscodeSettingsViewController.swift in Sources */,
 				90166B801D34797100CE90D0 /* MapViewController.swift in Sources */,
+				90D083DC1D3B42FC0077E181 /* PassUserDefault.swift in Sources */,
 				90166B7C1D34797100CE90D0 /* AppDelegate.swift in Sources */,
+				90D083DA1D3B42A50077E181 /* PassCodeLockConfig.swift in Sources */,
 				9057E22D1D359FF600DBF57D /* Functions.swift in Sources */,
 				9057E22B1D359BCE00DBF57D /* CoreDataStack.swift in Sources */,
 				9057E2231D349A1D00DBF57D /* Diary Model.xcdatamodeld in Sources */,
@@ -309,6 +362,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LocDiary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JYuan.LocDiary;
@@ -320,6 +377,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LocDiary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JYuan.LocDiary;

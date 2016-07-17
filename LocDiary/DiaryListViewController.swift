@@ -37,13 +37,15 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let detailCon = segue.destinationViewController as! DiaryDetailViewController
-        detailCon.managedContext = managedContext
-        if segue.identifier == "editDetail"{
-            let path = sender as! NSIndexPath
-            let diary = fetchedResultController.objectAtIndexPath(path) as! Diary
-            detailCon.currentDiary = diary
-            detailCon.editingModeOn = true
+        if segue.identifier  == "showDetail" || segue.identifier == "editDetail"{
+            let detailCon = segue.destinationViewController as! DiaryDetailViewController
+            detailCon.managedContext = managedContext
+            if segue.identifier == "editDetail"{
+                let path = sender as! NSIndexPath
+                let diary = fetchedResultController.objectAtIndexPath(path) as! Diary
+                detailCon.currentDiary = diary
+                detailCon.editingModeOn = true
+            }
         }
     }
     

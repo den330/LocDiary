@@ -1,0 +1,10 @@
+framework module PasscodeLock {
+  umbrella header "PasscodeLock.h"
+
+  export *
+  module * { export * }
+}
+
+module PasscodeLock.Swift {
+    header "PasscodeLock-Swift.h"
+}

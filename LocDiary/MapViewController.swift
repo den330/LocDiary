@@ -29,9 +29,14 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLocations()
-        if !locations.isEmpty{
-            LocationButton()
-        }
+        LocationButton()
+    }
+    
+
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.tabBar.hidden = false
     }
     
     func updateLocations(){
