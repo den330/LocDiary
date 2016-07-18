@@ -21,10 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let presenter = PasscodeLockPresenter(mainWindow: self.window, configuration: configuration)
         return presenter
     }()
+    
+    func customizeAppearance(){
+        window?.tintColor = UIColor.whiteColor()
+        let barTintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = barTintColor
+        UITabBar.appearance().barTintColor = UIColor.clearColor()
+    }
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         passcodeLockPresenter.presentPasscodeLock()
+        customizeAppearance()
         let tabController = window?.rootViewController as! UITabBarController
         let navCon = tabController.viewControllers![0] as! UINavigationController
         let diaryListCon = navCon.topViewController as! DiaryListViewController

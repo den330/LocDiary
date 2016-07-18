@@ -32,13 +32,6 @@ class MapViewController: UIViewController {
         LocationButton()
     }
     
-
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        tabBarController?.tabBar.hidden = false
-    }
-    
     func updateLocations(){
         mapView.removeAnnotations(locations)
         let entity = NSEntityDescription.entityForName("Location", inManagedObjectContext: managedContext)

@@ -28,9 +28,9 @@ class AnnotationDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        tabBarController?.tabBar.hidden = false
         if !isFirstTime{
             if let locationToEdit = locationToEdit{
-                print("here")
                 diaries = locationToEdit.diaries
                 tableView.reloadData()
             }else{

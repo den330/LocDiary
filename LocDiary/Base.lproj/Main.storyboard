@@ -70,9 +70,9 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bEA-j1-Vbk">
                                 <rect key="frame" x="20" y="157" width="560" height="373"/>
-                                <color key="backgroundColor" red="0.076499580540000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.14157313258047535" green="0.66666666666666663" blue="0.18632366446542736" alpha="0.71126077586206893" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgE-4K-Eax">
                                 <rect key="frame" x="20" y="72" width="560" height="30"/>
@@ -239,7 +239,7 @@
         <scene sceneID="PVt-N0-jQN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YOX-ow-Mtd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diary" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Diary" image="book-cover-tick-7" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kyk-wS-tpQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -258,7 +258,7 @@
         <scene sceneID="pEG-Dg-3sE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9yC-tN-D9K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="pushpin-7" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QFa-Cv-vK8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -286,44 +286,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passcode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaW-uN-7hk">
-                                <rect key="frame" x="261" y="289" width="79" height="21"/>
+                                <rect key="frame" x="229" y="284" width="79" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SQ-Ug-NhR">
-                                <rect key="frame" x="238" y="328" width="124" height="30"/>
-                                <state key="normal" title="Change Passcode"/>
+                                <rect key="frame" x="238" y="336" width="124" height="30"/>
+                                <state key="normal" title="Change Passcode">
+                                    <color key="titleColor" red="1" green="0.18123664780000001" blue="0.29336600159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="changePasscodeButtonTap:" destination="SCF-JI-qxh" eventType="touchUpInside" id="8ne-1G-a69"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vq7-Yg-dmZ">
-                                <rect key="frame" x="282" y="366" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="done" destination="SCF-JI-qxh" eventType="touchUpInside" id="cAR-WB-Klb"/>
-                                </connections>
-                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGc-Kw-FGR">
-                                <rect key="frame" x="359" y="284" width="51" height="31"/>
+                                <rect key="frame" x="322" y="284" width="51" height="31"/>
                                 <connections>
                                     <action selector="passcodeSwitchValueChange:" destination="SCF-JI-qxh" eventType="valueChanged" id="17T-Be-6e5"/>
                                 </connections>
                             </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2T-wx-llU">
+                                <rect key="frame" x="20" y="284" width="201" height="31"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8b-TD-nyC">
+                                <rect key="frame" x="379" y="284" width="201" height="31"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vq7-Yg-dmZ">
+                                <rect key="frame" x="282" y="374" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="done" destination="SCF-JI-qxh" eventType="touchUpInside" id="cAR-WB-Klb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Vq7-Yg-dmZ" firstAttribute="centerX" secondItem="0ZY-DM-W5v" secondAttribute="centerX" id="VJM-9i-cNL"/>
-                            <constraint firstItem="zaW-uN-7hk" firstAttribute="centerX" secondItem="0ZY-DM-W5v" secondAttribute="centerX" id="bcH-IP-r6K"/>
-                            <constraint firstItem="rGc-Kw-FGR" firstAttribute="centerY" secondItem="0ZY-DM-W5v" secondAttribute="centerY" id="bxG-Fq-tlK"/>
-                            <constraint firstItem="Vq7-Yg-dmZ" firstAttribute="top" secondItem="8SQ-Ug-NhR" secondAttribute="bottom" constant="8" id="sUm-y8-Grb"/>
-                            <constraint firstItem="8SQ-Ug-NhR" firstAttribute="centerX" secondItem="0ZY-DM-W5v" secondAttribute="centerX" id="tEd-wE-1WX"/>
-                            <constraint firstItem="8SQ-Ug-NhR" firstAttribute="top" secondItem="zaW-uN-7hk" secondAttribute="bottom" constant="18" id="w7c-eq-lWV"/>
-                            <constraint firstItem="rGc-Kw-FGR" firstAttribute="leading" secondItem="zaW-uN-7hk" secondAttribute="trailing" constant="19" id="xFt-9X-cvE"/>
-                            <constraint firstItem="zaW-uN-7hk" firstAttribute="centerY" secondItem="0ZY-DM-W5v" secondAttribute="centerY" id="z0f-m3-0Qv"/>
+                            <constraint firstItem="zaW-uN-7hk" firstAttribute="leading" secondItem="I2T-wx-llU" secondAttribute="trailing" constant="8" symbolic="YES" id="1Nq-OQ-lrR"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="I2T-wx-llU" secondAttribute="leading" id="26Z-sl-eYh"/>
+                            <constraint firstItem="I2T-wx-llU" firstAttribute="bottom" secondItem="zaW-uN-7hk" secondAttribute="bottom" id="2OE-Ds-Nr1"/>
+                            <constraint firstItem="P8b-TD-nyC" firstAttribute="top" secondItem="zaW-uN-7hk" secondAttribute="top" id="2tB-rb-U8k"/>
+                            <constraint firstItem="rGc-Kw-FGR" firstAttribute="leading" secondItem="zaW-uN-7hk" secondAttribute="trailing" constant="14" id="2wM-Jd-Vt7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P8b-TD-nyC" secondAttribute="trailing" id="6NT-OQ-6fr"/>
+                            <constraint firstItem="Vq7-Yg-dmZ" firstAttribute="top" secondItem="8SQ-Ug-NhR" secondAttribute="bottom" constant="8" id="GmP-wo-xvR"/>
+                            <constraint firstItem="P8b-TD-nyC" firstAttribute="bottom" secondItem="zaW-uN-7hk" secondAttribute="bottom" id="KhH-0l-TmR"/>
+                            <constraint firstItem="rGc-Kw-FGR" firstAttribute="top" secondItem="zaW-uN-7hk" secondAttribute="top" id="UWX-tW-OKo"/>
+                            <constraint firstItem="Vq7-Yg-dmZ" firstAttribute="centerX" secondItem="0ZY-DM-W5v" secondAttribute="centerX" id="ZXq-6V-0wC"/>
+                            <constraint firstItem="rGc-Kw-FGR" firstAttribute="bottom" secondItem="zaW-uN-7hk" secondAttribute="bottom" id="ZeB-40-CYI"/>
+                            <constraint firstItem="P8b-TD-nyC" firstAttribute="leading" secondItem="rGc-Kw-FGR" secondAttribute="trailing" constant="8" symbolic="YES" id="eml-6F-GF2"/>
+                            <constraint firstItem="8SQ-Ug-NhR" firstAttribute="centerX" secondItem="0ZY-DM-W5v" secondAttribute="centerX" id="g7A-2F-0Me"/>
+                            <constraint firstItem="rGc-Kw-FGR" firstAttribute="top" secondItem="P8b-TD-nyC" secondAttribute="bottom" constant="-31" id="i7W-34-g1X"/>
+                            <constraint firstItem="zaW-uN-7hk" firstAttribute="centerY" secondItem="0ZY-DM-W5v" secondAttribute="centerY" id="oQp-7N-uRS"/>
+                            <constraint firstItem="8SQ-Ug-NhR" firstAttribute="top" secondItem="zaW-uN-7hk" secondAttribute="bottom" constant="21" id="otR-Ci-SPI"/>
+                            <constraint firstItem="I2T-wx-llU" firstAttribute="top" secondItem="zaW-uN-7hk" secondAttribute="top" id="pzU-uM-mlt"/>
+                            <constraint firstItem="I2T-wx-llU" firstAttribute="width" secondItem="P8b-TD-nyC" secondAttribute="width" id="vVn-CK-bgx"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="i7W-34-g1X"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="DP6-FY-Epn" appends="YES" id="Ia5-Af-rtp"/>
                         </connections>
@@ -336,12 +361,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X66-xu-xSR" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="DP6-FY-Epn"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="-1306"/>
+            <point key="canvasLocation" x="1109" y="-1324"/>
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="book-cover-tick-7" width="30" height="30"/>
+        <image name="pushpin-7" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="om8-KB-k43"/>
