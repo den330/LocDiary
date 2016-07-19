@@ -42,11 +42,25 @@ class AnnotationDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let diaries = diaries else{
-            return 0
-        }
-        return diaries.count
+        return diaries!.count
     }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            let diary = diaries![indexPath.row] as! Diary
+            if let location = diary.location{
+                location.entNum -= 1
+                if location.entNum == 0{
+                    managedContext.deleteObject(location)
+                }
+            }
+            managedContext.deleteObject(diary)
+            try! managedContext.save()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
+    
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DiaryCell") as! DiaryCell

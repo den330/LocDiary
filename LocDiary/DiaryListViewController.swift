@@ -53,18 +53,14 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
         if editingStyle == UITableViewCellEditingStyle.Delete{
             let diary = fetchedResultController.objectAtIndexPath(indexPath) as! Diary
             if let location = diary.location{
-               
-                let diaries = location.diaries.mutableCopy() as! NSMutableOrderedSet
-                diaries.removeObject(diary)
-                location.diaries = diaries.copy() as! NSOrderedSet
-                location.entNum -= 1
+               location.entNum -= 1
                 if location.entNum == 0{
                     managedContext.deleteObject(location)
                 }
             }
             managedContext.deleteObject(diary)
             try! managedContext.save()
-        }
+           }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
